@@ -1,0 +1,15 @@
+.create-check__item{
+    background: var(--white-color);
+    border: 1px solid #001E1D;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    width: 100%;
+    min-height: 40px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.create-check__item:first-child{
+    margin-top: 0;
+}
