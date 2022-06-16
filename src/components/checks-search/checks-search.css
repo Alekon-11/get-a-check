@@ -1,0 +1,10 @@
+.checks__search{
+    width: 320px;
+    padding: 10px 20px;
+    background-color: var(--panel-color);
+    border-radius: 5px;
+}
+
+.input-search{
+    width: 100%;
+}

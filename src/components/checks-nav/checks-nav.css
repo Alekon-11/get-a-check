@@ -1,0 +1,6 @@
+.checks__nav{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

@@ -1,4 +1,6 @@
 .create-check__item{
+    position: relative;
+
     background: var(--white-color);
     border: 1px solid #001E1D;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
@@ -6,10 +8,68 @@
 
     width: 100%;
     min-height: 40px;
-    padding: 10px 20px;
     margin-top: 10px;
+    padding: 10px 20px;
+
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .create-check__item:first-child{
     margin-top: 0;
 }
+
+.create-check__name, 
+.create-check__price,
+.create-check__btn-close{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.create-check__name{
+    left: 20px;
+}
+
+.create-check__price{
+    font-size: 18px;
+    right: 60px;
+}
+
+.create-check__price span{
+    font-weight: 500;
+}
+
+.btn-close{
+    position: absolute;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--panel-color);
+    border-radius: 5px;
+    background-color: var(--white-color);
+    cursor: pointer;
+
+    transition: background .2s linear;
+}
+
+.btn-close:hover,
+.btn-close:focus{
+    background-color: var(--remove-btn-color);
+}
+
+.btn-close::before,
+.btn-close::after{
+    content: '';
+    display: block;
+    width: 12%;
+    height: 80%;
+    background-color: var(--panel-color);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.btn-close::before{ transform: translate(-50%,-50%) rotate(-45deg);}
+.btn-close::after{ transform: translate(-50%,-50%) rotate(45deg);}

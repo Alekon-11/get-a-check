@@ -1,0 +1,25 @@
+.checks__filter{
+    padding: 10px 20px;
+    background-color: var(--panel-color);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.btn-all,
+.btn-special{
+    width: 65px;
+    height: 30px;
+}
+
+.checks__filter .btn{
+    margin-right: 10px;
+}
+
+.checks__filter .btn:last-child{
+    margin-right: 0;
+}
+
+.btn-active{
+    box-shadow: 0px 0px 10px rgba(255 255 255 / 35%);
+    background-color: var(--white-color);
+}

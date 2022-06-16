@@ -20,6 +20,12 @@
   padding: 0;
 }
 
+input:focus,
+button:focus{
+    outline: 2px solid var(--bg-main-color);
+    outline-offset: 1px;
+}
+
 ul{
   font-size: 0;
 }
@@ -35,6 +41,7 @@ h1,h2,h3,h4,h5,h6,p{
 
 body {
   margin: 0;
+  color: var(--text-color);
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
