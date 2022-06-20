@@ -3,11 +3,11 @@ import ChecksSearch from '../checks-search/checks-search';
 
 import './checks-nav.css';
 
-function ChecksNav(){
+function ChecksNav({onSetSearchValue, onSetFilter, stateFilter}){
     return(
         <nav className="checks__nav">
-            <ChecksFilter />
-            <ChecksSearch /> 
+            <ChecksFilter stateFilter={stateFilter} onSetFilter={onSetFilter} />
+            <ChecksSearch onSetSearchValue={onSetSearchValue}/> 
         </nav>
     )
 }

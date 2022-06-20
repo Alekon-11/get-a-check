@@ -5,7 +5,7 @@ import CreateCheckItems from '../create-check-items/create-check-items';
 
 import './create-check.css';
 
-function CreateCheck({data, onSetProduct, onDelete}){
+function CreateCheck({data, onSetProduct, onDelete, onCreateCheck}){
     const items = data.map(item => {
         let {id, ...otherProps} = item;
         return <CreateCheckItems key={id} {...otherProps} onDelete={() => onDelete(id)}/>
@@ -16,7 +16,7 @@ function CreateCheck({data, onSetProduct, onDelete}){
             <ul className='create-check__list'>
                 {items}
             </ul>
-            <CreateCheckAddForm onSetProduct={onSetProduct} />
+            <CreateCheckAddForm onCreateCheck={onCreateCheck} onSetProduct={onSetProduct} />
         </section>
     )
 }

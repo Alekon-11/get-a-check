@@ -1,10 +1,28 @@
 import './checks-filter.css';
 
-function ChecksFilter(){
+function ChecksFilter({onSetFilter, stateFilter}){
+
+    const buttons = [
+        {name: 'All', lable: 'All'},
+        {name: 'Special', lable: 'Special'}
+    ]
+
+    const btnList = buttons.map((item, num) => {
+
+        const active = stateFilter === item.name;
+
+        const clazz = active ? 'btn btn-all btn-active' : 'btn btn-all';
+
+        return <button key={num} 
+                       className={clazz}
+                       onClick={() => onSetFilter(item.name)}>
+                    {item.lable}
+                </button>
+    })
+
     return(
         <div className="checks__filter">
-            <button className="btn btn-all btn-active">All</button>
-            <button className="btn btn-special">Special</button>
+            {btnList}
         </div>
     )
 }

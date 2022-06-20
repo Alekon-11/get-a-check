@@ -48,7 +48,7 @@ class CreateCheckAddForm extends Component{
                            onChange={this.onSetValue}
                            value={price}/>
                     <button type="submit" className='btn btn-set'>set</button>
-                    <button type="button" className='btn btn-done'>done</button> 
+                    <button type="button" onClick={this.props.onCreateCheck} className='btn btn-done'>done</button> 
                 </form>
             </>
         )
