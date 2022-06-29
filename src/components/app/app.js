@@ -11,39 +11,32 @@ class App extends Component{
     constructor(props){
         super(props);
 
-        // this.date = `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`;
+        this.checkDate = `${new Date().getDate()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`;
 
         this.state = {
-            data: [
-                {product: 'Сыр гауда 200г', price: 220, id:1 + ('EvsRg' + (Math.random() * 100).toFixed(0))},
-                {product: 'Спагетти 500г', price: 80, id:2 + ('EvsRg' + (Math.random() * 100).toFixed(0))}
-            ],
-            checks: [
-                {       
-                    name: 'Shop',
-                    date: '15/6/2022', 
-                    products: [
-                        {product: 'Сыр гауда', price: 200},
-                        {product: 'Колбаса', price: 154},
-                    ], 
-                    id:1 + ('EvsRg' + (Math.random() * 100).toFixed(0)),
-                    special: false
-                },
-                {   
-                    name: 'Shop',
-                    date: '17/6/2022', 
-                    products: [
-                        {product: 'Крабовые палочки', price: 93}
-                    ], 
-                    id:2 + ('EvsRg' + (Math.random() * 100).toFixed(0)),
-                    special: false
-                }
-            ],
+            data: [],
+            checks: [],
             searchValue: '',
             filter: 'All'
         };
         
         this.maxId = 2;
+    }
+
+    componentDidMount(){
+        if(!localStorage.getItem('checks') || !localStorage.getItem('products')){
+            localStorage.setItem('checks','[]');
+            localStorage.setItem('products','[]');
+        }
+        this.setState({
+            checks: JSON.parse(localStorage.getItem('checks')),
+            data: JSON.parse(localStorage.getItem('products'))
+        })
+    }
+
+    componentDidUpdate(){
+        localStorage.setItem('checks', JSON.stringify(this.state.checks));
+        localStorage.setItem('products', JSON.stringify(this.state.data));
     }
 
     onDelete = (id) => {
@@ -56,6 +49,7 @@ class App extends Component{
         this.setState(({checks}) => ({
             checks: checks.filter(item => item.id !== id)
         }));
+        this.setLocalStoradge(this.state.checks);
     }
 
     onSetProduct = (product, price) => {
@@ -96,9 +90,11 @@ class App extends Component{
     }
 
     onCreateCheck = () => {
+
         if(!this.state.data.length){
             return;
         }
+
         this.setState(({checks, data}) => {
             const productItems = data.map(item => {
                 return {product: item.product, price: item.price}
@@ -106,7 +102,7 @@ class App extends Component{
 
             const check = {
                 name: 'Shop',
-                date: '15/6/2022', 
+                date: this.checkDate, 
                 products: productItems, 
                 id: ++this.maxId + ('EvsRg' + (Math.random() * 100).toFixed(0)),
                 special: false
