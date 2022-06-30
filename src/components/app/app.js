@@ -49,7 +49,6 @@ class App extends Component{
         this.setState(({checks}) => ({
             checks: checks.filter(item => item.id !== id)
         }));
-        this.setLocalStoradge(this.state.checks);
     }
 
     onSetProduct = (product, price) => {
@@ -97,7 +96,7 @@ class App extends Component{
 
         this.setState(({checks, data}) => {
             const productItems = data.map(item => {
-                return {product: item.product, price: item.price}
+                return {product: item.product, price: item.price, id: item.id}
             })
 
             const check = {
@@ -142,7 +141,11 @@ class App extends Component{
         if(value === 0){
             return list;
         }
+        
+        // let exp = new RegExp(value,'ig');
+        // console.log(list.filter(item => exp.test(item.name)));           // доделать поиск по строке
         return list.filter(item => item.name.includes(value));
+
     }
 
     changeFilter = (value, list) => {

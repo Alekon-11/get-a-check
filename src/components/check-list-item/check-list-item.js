@@ -15,18 +15,17 @@ class CheckListItem extends Component{
         this.props.onSetName(this.props.id, e.target.value);
     }
 
-
     render(){
         let {date, products, onDeleteCheck, onToggleSpecial, special} = this.props;
 
         let itemClass = 'checks__item';
         if(special){
-            itemClass = itemClass + ' checks__item_special';
+            itemClass += ' checks__item_special';
         }
 
-        const productItems = products.map((item, num) => {
+        const productItems = products.map(item => {
             return (
-                <li className="checks__prod-elem" key={item.price + num}>
+                <li className="checks__prod-elem" key={item.id}>
                         {item.product}
                         <span>{item.price} ₽</span>
                 </li>
@@ -38,7 +37,7 @@ class CheckListItem extends Component{
 
         return(
             <li onClick={onToggleSpecial} className={itemClass}>
-                <input className="checks__shop-name" onChange={this.onSetValue} value={this.state.value} />
+                <input onClick={(e) => e.stopPropagation()} className="checks__shop-name" onChange={this.onSetValue} value={this.state.value} />
                 <div className="checks__date">{date}</div>
                 <ul className="checks__prod-elems">
                     {productItems}

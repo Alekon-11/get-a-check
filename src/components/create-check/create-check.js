@@ -1,5 +1,6 @@
 import CreateCheckAddForm from '../create-check-add-form/create-check-add-form';
 import CreateCheckItems from '../create-check-items/create-check-items';
+import EmptyBlock from '../empty-block/empty-block';
 
 // import { Component } from 'react';
 
@@ -13,9 +14,9 @@ function CreateCheck({data, onSetProduct, onDelete, onCreateCheck}){
 
     return (
         <section className='create-check'>
-            <ul className='create-check__list'>
-                {items}
-            </ul>
+            {!data.length ? <EmptyBlock /> : <ul className='create-check__list'>
+                                                 {items}
+                                             </ul>}
             <CreateCheckAddForm onCreateCheck={onCreateCheck} onSetProduct={onSetProduct} />
         </section>
     )
