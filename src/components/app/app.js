@@ -141,11 +141,8 @@ class App extends Component{
         if(value === 0){
             return list;
         }
-        
-        // let exp = new RegExp(value,'ig');
-        // console.log(list.filter(item => exp.test(item.name)));           // доделать поиск по строке
-        return list.filter(item => item.name.includes(value));
 
+        return list.filter(item => new RegExp(value, 'ig').test(item.name));
     }
 
     changeFilter = (value, list) => {
