@@ -8,3 +8,9 @@
 .input-search{
     width: 100%;
 }
+
+@media (width <= 730px){
+    .checks__search{
+        width: 100%;
+    }
+}

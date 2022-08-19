@@ -3,4 +3,23 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 1;
+}
+
+@media (width <= 970px){
+    .checks__nav{
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        width: 100%;
+        padding: 0 20px;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (width <= 730px){
+    .checks__nav{
+        flex-direction: column-reverse;
+    }
 }

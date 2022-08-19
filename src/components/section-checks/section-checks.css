@@ -4,17 +4,33 @@
     background-color: var(--white-color);
     width: 100%;
     border-radius: 10px;
-    margin-top: 30px;
     box-shadow: 5px 5px 10px rgb(0 0 0 / 25%);
     margin-bottom: 30px;
 }
 
 .checks{
     min-height: 260px;
+    margin-top: 30px;
 }
 
 .checks__logo{
     font-size: 50px;
     font-weight: 700;
     line-height: 1;
+}
+
+@media (width <= 970px){
+    .checks{
+        min-height: 340px;
+    }
+    .checks__logo{
+        text-align: center;
+    }
+}
+
+@media (width <= 730px){
+    .checks{
+        min-height: 400px;
+        margin-top: 110px;
+    }
 }
